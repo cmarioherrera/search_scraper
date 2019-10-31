@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Buscador</title>
+</head>
+<body>
+  <h1>Buscador  de Duckduckgo</h1>
+  <form method="post">
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="word" name="word">
+          <div class="input-group-append">
+              <button type="submit" class="btn-primary">Buscar...</button>
+          </div>
+        </div>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Url</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if data %}
+      {% for result in data %}
+      
+      <tr>
+        <th scope="row"> {{ loop.index }} </th>
+        <td>{{ result['title'] }}</td>
+        <td>{{ result['url'] }}</td>
+        <td>{{ result['description'] }}</td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+</body>
+
+</html>
